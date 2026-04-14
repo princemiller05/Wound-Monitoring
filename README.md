@@ -244,15 +244,6 @@ pytest tests/
 Tests cover the pure-Python logic (feature extraction, rule baseline, mask postprocessing). The model-heavy pieces are tested end-to-end by running `run_demo.py` on a sample image.
 
 ---
-
-## Credits
-
-Built as a group project:
-
-- **Prince Betuverma** — wound segmentation (YOLO + MedSAM), pipeline integration
-- **Subham** — tissue classification (ResNet18)
-- **Varsha** — healing prediction (XGBoost)
-
 ---
 
 ## Roadmap
