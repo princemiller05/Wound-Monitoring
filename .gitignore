@@ -1,0 +1,34 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Model weights (too large for git)
+models/segmentation/*.pt
+models/segmentation/*.pth
+models/tissue/*.pth
+models/healing/*.json
+
+# Outputs (generated at runtime)
+outputs/
+
+# Data (too large for git)
+data/sample_inputs/*.png
+data/sample_inputs/*.jpg
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+
+# Environment
+.env
+venv/

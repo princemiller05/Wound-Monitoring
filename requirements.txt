@@ -1,0 +1,20 @@
+# Core
+numpy
+pandas
+opencv-python
+matplotlib
+pillow
+scikit-image
+
+# Deep Learning
+torch
+torchvision
+ultralytics
+git+https://github.com/bowang-lab/MedSAM.git
+
+# ML
+scikit-learn
+xgboost
+
+# Optional (visualization)
+seaborn
