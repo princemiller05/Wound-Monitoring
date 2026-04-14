@@ -1,4 +1,4 @@
-# DFU Pipeline — AI-Assisted Remote Wound Monitoring
+# AI-Assisted Remote Wound Monitoring System for Telehealth Applications
 
 An end-to-end pipeline for analyzing **Diabetic Foot Ulcers (DFUs)** from a single photograph. It tells you how big the wound is, what kind of tissue it's made of, and whether it's likely to heal.
 
