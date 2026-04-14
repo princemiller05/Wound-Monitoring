@@ -56,60 +56,66 @@ dfu_pipeline/
 ├── README.md
 ├── requirements.txt
 ├── .gitignore
-├── run_demo.py                   # one-command demo
+├── run_demo.py                        # one-command demo
 │
 ├── data/
-│   └── sample_inputs/            # drop wound images here
+│   └── sample_inputs/                 # drop wound images here
+│       ├── test_wound.jpg
+│       ├── woundtst.jpg
+│       └── woundtst2.jpg
 │
-├── models/                       # trained weights go here (not in git, see below)
+├── models/                            # trained weights go here (not in git)
 │   ├── segmentation/
-│   │   ├── best.pt               # YOLO
-│   │   └── medsam_vit_b.pth      # MedSAM
+│   │   ├── best.pt                    # YOLO
+│   │   └── medsam_vit_b.pth           # MedSAM
 │   ├── tissue/
-│   │   └── tissue_model.pth      # ResNet18
+│   │   └── tissue_model.pth           # ResNet18
 │   └── healing/
-│       └── xgb_healing.json      # XGBoost
+│       └── xgb_healing.json           # XGBoost
 │
-├── outputs/                      # generated at runtime (gitignored)
-│   ├── masks_pred/               # binary wound masks
-│   ├── overlays/                 # contour drawn on original
-│   ├── crops/                    # isolated wound, background removed
-│   ├── tissue_preds/             # colored tissue heatmaps
-│   └── healing/                  # trend plots + CSVs
+├── outputs/                           # generated at runtime (gitignored)
+│   ├── masks_pred/                    # binary wound masks
+│   ├── overlays/                      # contour drawn on original
+│   ├── crops/                         # isolated wound, background removed
+│   ├── tissue_preds/                  # colored tissue heatmaps
+│   └── healing/                       # trend plots + CSVs
 │
 ├── pipeline/
 │   ├── __init__.py
-│   ├── config.py                 # all paths and thresholds
-│   ├── schemas.py                # output dataclasses
-│   ├── orchestrator.py           # the top-level DFUPipeline class
+│   ├── config.py                      # all paths and thresholds
+│   ├── schemas.py                     # output dataclasses
+│   ├── orchestrator.py                # the top-level DFUPipeline class
 │   │
-│   ├── segmentation/             # Prince's module
-│   │   ├── model.py              # loads YOLO + MedSAM
-│   │   ├── preprocess.py         # image loading / resizing
-│   │   ├── infer.py              # detection + segmentation
-│   │   └── utils.py              # mask cleanup, overlays, area
+│   ├── segmentation/                  # Prince's module
+│   │   ├── __init__.py
+│   │   ├── model.py                   # loads YOLO + MedSAM
+│   │   ├── preprocess.py              # image loading / resizing
+│   │   ├── infer.py                   # detection + segmentation
+│   │   └── utils.py                   # mask cleanup, overlays, area
 │   │
-│   ├── tissue/                   # Subham's module
-│   │   ├── model.py              # loads ResNet18
-│   │   ├── preprocess.py         # patch sampling + transforms
-│   │   ├── infer.py              # sliding-window classification
-│   │   └── utils.py              # tissue map overlay, percentages
+│   ├── tissue/                        # Subham's module
+│   │   ├── __init__.py
+│   │   ├── model.py                   # loads ResNet18
+│   │   ├── preprocess.py              # patch sampling + transforms
+│   │   ├── infer.py                   # sliding-window classification
+│   │   └── utils.py                   # tissue map overlay, percentages
 │   │
-│   └── healing/                  # Varsha's module
-│       ├── model.py              # loads XGBoost
-│       ├── synthetic_progression.py  # simulates day 7/14/21 masks
-│       ├── features.py           # longitudinal dataset + summary features
-│       ├── rule_baseline.py      # 30% area reduction rule
-│       ├── infer.py              # main prediction function
-│       └── utils.py              # trend plots
+│   └── healing/                       # Varsha's module
+│       ├── __init__.py
+│       ├── model.py                   # loads XGBoost
+│       ├── synthetic_progression.py   # simulates day 7/14/21 masks
+│       ├── features.py                # longitudinal dataset + summary features
+│       ├── rule_baseline.py           # 30% area reduction rule
+│       ├── infer.py                   # main prediction function
+│       └── utils.py                   # trend plots
 │
-├── notebooks/                    # original notebooks, kept for reference
-│   ├── prince_segmentation.ipynb
-│   ├── subham_tissue.ipynb
-│   └── varsha_healing.ipynb
+├── notebooks/                         # original notebooks, converted to .py for reference
+│   ├── prince_segmentation.py
+│   ├── subham_tissue.py
+│   └── varsha_healing.py
 │
 ├── scripts/
-│   └── train_healing_model.py    # regenerate xgb_healing.json
+│   └── train_healing_model.py         # regenerate xgb_healing.json
 │
 └── tests/
     ├── test_segmentation.py
